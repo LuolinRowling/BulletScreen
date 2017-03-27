@@ -1,34 +1,38 @@
+var serverAddress = ''
 window.onload = function() {
 
     // Get code
     var url = window.location.search;
 
-    if (url.split('?')[1].split('&').length < 2) return;
+    if (url.indexOf('?') != -1) {
+        
+        if (url.split('?')[1].split('&').length < 2) return;
 
-    var code = url.split('?')[1].split('&')[0].split('=')[1];
+        var code = url.split('?')[1].split('&')[0].split('=')[1];
 
-    var httpRequest = new XMLHttpRequest(),
-        url = "/wechat/getUserName?code=" + code;
+        var httpRequest = new XMLHttpRequest(),
+            url = "/wechat/getUserName?code=" + code;
 
-    if (!httpRequest) {
-        cosole.log("Cannot create an XMLHTTP instance")
-        return false;
-    }
+        if (!httpRequest) {
+            cosole.log("Cannot create an XMLHTTP instance")
+            return false;
+        }
 
-    httpRequest.onreadystatechange = function() {
-        if (httpRequest.readyState === XMLHttpRequest.DONE) {
-            if (httpRequest.status === 200) {
-                var response = JSON.parse(httpRequest.responseText);
-                if (response.nickname != undefined) localStorage.setItem("nickname", response.nickname);
-            } else {
-                // alert('There was a problem with the request.');
+        httpRequest.onreadystatechange = function() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 200) {
+                    var response = JSON.parse(httpRequest.responseText);
+                    if (response.nickname != undefined) localStorage.setItem("nickname", response.nickname);
+                } else {
+                    // alert('There was a problem with the request.');
+                }
             }
         }
-    }
 
-    httpRequest.open('GET', url);
-    httpRequest.setRequestHeader('Content-Type', "application/json");
-    httpRequest.send();
+        httpRequest.open('GET', url);
+        httpRequest.setRequestHeader('Content-Type', "application/json");
+        httpRequest.send();
+    }
 
     var height = document.getElementsByClassName('bullet-content')[0].offsetHeight,
         width = document.getElementsByClassName('bullet-content')[0].offsetWidth,
