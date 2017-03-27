@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <style type="text/css">
+            .bullet-screen {
+                width: 100%;
+                height: 100%;
+                background: #f1f1f1;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+            .bullet-title {
+                width: 100%;
+                text-align: center;
+                font-size: 1.6rem;
+                padding: 0.4rem;
+                box-sizing: border-box;
+            }
+            .bullet-content {
+                position: absolute;
+                top: 2.8rem;
+                bottom: 3.6rem;
+                left: 0;
+                right: 0;
+                overflow: hidden;   
+            }
+            .bullet-load {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                height: 2.4rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .bullet-input {
+                height: 2rem;
+                line-height: 2rem;
+                width: 70%;
+                box-sizing: border-box;
+                float: left;
+                font-size: 1.2rem;
+                padding: 0 0.4rem;
+            }
+            .submit-btn {
+                display: inline-block;
+                width: 30%;
+                line-height: 2rem;
+                height: 2rem;
+                background: #286090;
+                color: #fff;
+                box-sizing: border-box; 
+                text-align: center;
+                float: left;
+                font-size: 1.2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bullet-screen">
+            <div class="bullet-title">弹幕墙</div>
+            <div class="bullet-content">
+            </div>
+        </div>
+        <div class="bullet-load">
+            <input class="bullet-input" type="text" />
+            <span class="submit-btn">发　射</span>
+        </div>
+        <script src="./bullet.js"></script>
+    </body>
+</html>
