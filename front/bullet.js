@@ -60,48 +60,10 @@ window.onload = function() {
         elem.style.left = width + "px";
         elem.innerHTML = bulletContent;
 
-        var duration = Math.random() * (maxDuration - minDuration) + maxDuration,
-            leftValue = width;
-
-        setInterval(function() {
-            // elem.style.webkitTransform  = "translateX(" + leftValue + "px)";
-            elem.style.left = leftValue + "px";
-            leftValue--;
-            if (leftValue <= -300) leftValue = width;
-        }, 3 * width / duration)        
-
-        // var isIOS = navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
-
-        // if (isIOS) {
-        //     var duration = Math.random() * (maxDuration - minDuration) + maxDuration,
-        //         leftValue = width;
-
-        //     setInterval(function() {
-        //         // elem.style.webkitTransform  = "translateX(" + leftValue + "px)";
-        //         elem.style.left = leftValue + "px";
-        //         leftValue--;
-        //         if (leftValue <= -300) leftValue = width;
-        //     }, width / duration)
-        // } else {
-
-        //     var duration = Math.random() * (maxDuration - minDuration) + maxDuration,
-        //         leftValue = width;
-
-        //     setInterval(function() {
-        //         // elem.style.transform = "translateX(" + leftValue + "px)";
-        //         elem.style.left  = leftValue + "px";
-        //         leftValue--;
-        //         if (leftValue <= -300) leftValue = width;
-        //     }, width / duration)
-
-        //     // elem.animate([
-        //     //     { "transform": 'translateX(' + width + 'px)'},
-        //     //     { "transform": 'translateX(-300px)'}
-        //     // ], {
-        //     //     duration: Math.random() * (maxDuration - minDuration) + maxDuration,
-        //     //     iterations: Infinity
-        //     // })
-        // }
+        if (bulletContent.length <= 25) 
+            elem.className = "move_25";
+        else
+            elem.className = "move_50";
 
         screen.appendChild(elem);
         
